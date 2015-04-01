@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour {
 	private float moveHorizontal;
 	private float moveVertical;
 
+	private bool shotEnable;
+
 	private SharedData manager;
 
 	// To manage fire rate
@@ -69,10 +71,17 @@ public class PlayerController : MonoBehaviour {
 			numBolts +=1;
 		}
 
+
+		shotEnable = (manager.AutoFire == true || Input.GetButtonDown ("Fire1"));
+
+
+
 		//utilityText.text = "Bolts = " + numBolts;
 		if (manager.MultiShot == true || numBolts == 0) 
 			{
-				if (Input.GetButtonDown ("Fire1") && Time.time > nextFire) { // && numBolts < 1)
+				//if (Input.GetButtonDown ("Fire1") && Time.time > nextFire) { // && numBolts < 1)
+			if (shotEnable == true && Time.time > nextFire)
+			{
 						nextFire = Time.time + fireRate;
 							//GameObject clone =   Instantiate(shot, shotSpawn.position, shotSpawn.rotation) as GameObject;
 							Instantiate (shot, shotSpawn.position, shotSpawn.rotation);

@@ -17,6 +17,7 @@ public class SharedData : MonoBehaviour {
 	public bool MultiShot;
 	public bool UpDown;
 	public bool GameMute;
+	public bool AutoFire;
 
 	// Called once on Awake
 	void Awake() {
@@ -37,6 +38,7 @@ public class SharedData : MonoBehaviour {
 		MultiShot = true;
 		UpDown = false;
 		GameMute = false;
+		AutoFire = false;
 	}
 	
 	// Update is called once per frame
